@@ -1,0 +1,8 @@
+singleword
+two words
+this is a long tag
+short-tag
+Mixed Case Tag
+    Leading spaces
+Trailing Spaces    
+last tag
