@@ -127,15 +127,18 @@
 		
 		if ($formtype=='q_edit') { // get tags for auto-completion
 			if (qa_opt('do_complete_tags'))
+			{				
 				$completetags=array_keys(qa_db_select_with_pending(qa_db_popular_tags_selectspec(0, QA_DB_RETRIEVE_COMPLETE_TAGS)));
 				
 				// ********************** START MODIFICATION *****************************
 				require_once QA_EXTERNAL_DIR .'qa-import-tags.php';
 				qa_import_predefined_tags($completetags);
 				// **********************  END MODIFICATION  *****************************
-	
+			}
 			else
+			{
 				$completetags=array();
+			}
 		}
 	}
 	
