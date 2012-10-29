@@ -20,12 +20,12 @@ function qa_import_predefined_tags(&$existing_tags)
 		// Import and cleanup/format the tags as we go along
 		while(!feof($file))
 		{
-			$tag = fgets($file);
+			$tag = utf8_encode(fgets($file));	//utf8_encode to deal with accented characters
 			
 			if($tag)
 			{
 				$new_key = trim($tag);							// Strip whitespace from start and end of string
-				$new_key = strtoupper($new_key);				// Convert to upper-case
+				$new_key = mb_strtoupper($new_key, 'UTF-8');	// Convert to upper-case.  mb_strtoupper deals with UTF-8 encoding
 				$new_key = str_replace(" ", "-", $new_key);		// Hyphenate multi-word keys
 	
 				// Add new tag (key)
